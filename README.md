@@ -27,3 +27,15 @@ We have jenkins running in port 8080 and we need a password to unlock the Jenkin
 
 Password:
   docker exec jenkins-blueocean cat /var/jenkins_home/secrets/initialAdminPassword
+
+
+To start the same container from the second time:
+docker start jenkins-blueocean
+
+To go to the bash terminal --> to view the file system
+docker exec -it jenkins-blueocean bash
+
+1. pwd  --> print working directory
+2. check for volume location and do a cd
+3. cd workspace
+4. cd job name
