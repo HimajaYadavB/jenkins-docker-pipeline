@@ -39,3 +39,18 @@ docker exec -it jenkins-blueocean bash
 2. check for volume location and do a cd
 3. cd workspace
 4. cd job name
+
+alpine/socat container to forward traffic from Jenkins to Docker Desktop on Host Machine:
+docker run -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
+docker inspect <container_id> | grep IPAddress
+
+
+
+
+
+Python DockerFile
+Step 1: build the file locally 
+docker build -t himaja16/jenkins-agent-python .
+
+Step 2: Push image to registry
+docker push himaja16/jenkins-agent-python
